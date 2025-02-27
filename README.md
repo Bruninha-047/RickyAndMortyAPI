@@ -1,4 +1,4 @@
-# ricky_and_morty_app
+# rm_app
 
 A new Flutter project.
 

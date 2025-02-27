@@ -3,21 +3,20 @@ class Character {
   final String name;
   final String status;
   final String image;
-   
+
   Character({
     required this.id,
     required this.name,
     required this.status,
-    required this.image
+    required this.image,
   });
 
-  factory Character.fromJson(Map<String,dynamic> json){
+  factory Character.fromJson(Map<String, dynamic> json) {
     return Character(
       id: json['id'],
       name: json['name'],
       status: json['status'],
-      image: json['image']
+      image: json['image'],
     );
   }
-
 }
