@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:rm_app/services/rm_api_service.dart';
 import '../models/character.dart';
+import 'package:rm_app/screens/detail_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -22,7 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+  return Scaffold(
       appBar: AppBar(
         title: const Text('Rick and Morty'),
         centerTitle: true,
@@ -46,8 +47,17 @@ class _HomeScreenState extends State<HomeScreen> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(16)
                   ),
-                  child: ListTile(
-                    trailing:  CachedNetworkImage(imageUrl: character.image,
+                  child: ListTile( 
+                    onTap: () {
+                      print("Clicou no personagem: ${character.name})");
+                          Navigator.push(
+                            context, 
+                            MaterialPageRoute(
+                              builder: (context) => DetailScreen(character)
+                            ),
+                          );
+                        },
+                    leading:  CachedNetworkImage(imageUrl: character.image,
                     width: 50,
                     height: 50,
                     fit: BoxFit.cover,
